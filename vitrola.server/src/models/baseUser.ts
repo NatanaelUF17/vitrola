@@ -1,9 +1,14 @@
-import Role from './role';
+import { Column, PrimaryGeneratedColumn } from 'typeorm';
 
 export abstract class BaseUser {
-  id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
+  @Column()
   name: string;
+  @Column()
   lastName: string;
-  role: Role;
+  @Column()
+  role: string;
+  @Column()
   password: string;
 }

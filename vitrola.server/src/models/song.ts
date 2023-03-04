@@ -1,7 +1,15 @@
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
 export class Song {
-  id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
+  @Column()
   songId: string;
+  @Column()
   name: string;
-  adminId: string;
+  @Column()
   url: string;
+  @Column()
+  adminId: string;
 }

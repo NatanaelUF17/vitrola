@@ -1,6 +1,10 @@
+import { Column, Entity } from 'typeorm';
 import { BaseUser } from './baseUser';
 
+@Entity()
 export class Admin extends BaseUser {
+  @Column()
   adminId: string;
-  adminUsername: string;
+  @Column()
+  username: string;
 }

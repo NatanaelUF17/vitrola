@@ -12,12 +12,12 @@ export class RoleService {
     private roleRepository: Repository<Role>,
   ) {}
 
-  getAllRoles(): Promise<Role[]> {
-    return this.roleRepository.find();
+  async getAllRoles(): Promise<Role[]> {
+    return await this.roleRepository.find();
   }
 
-  getRole(id: string): Promise<Role> {
-    return this.roleRepository.findOneBy({ id });
+  async getRole(id: string): Promise<Role> {
+    return await this.roleRepository.findOneBy({ id });
   }
 
   async insertRole(role: RoleDto): Promise<void> {
@@ -30,6 +30,27 @@ export class RoleService {
       await this.roleRepository.insert(newRole);
     } catch (error) {
       console.log(error);
+      throw error;
+    }
+  }
+
+  async updateRole(id: string, role: Role): Promise<void> {
+    let oldRole = {};
+
+    if (id) {
+      oldRole = await this.getRole(id);
+    }
+
+    try {
+      const newRole = {
+        ...oldRole,
+        name: role.name,
+      };
+
+      await this.roleRepository.save(newRole);
+    } catch (error) {
+      console.log(error);
+      throw error;
     }
   }
 }

@@ -13,9 +13,11 @@ import { SongRequestService } from './services/song-request.service';
 import dbConfig from './database/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import Role from './models/role';
+import { Admin } from './models/admin';
+import { Song } from './models/song';
 
 @Module({
-  imports: [dbConfig, TypeOrmModule.forFeature([Role])],
+  imports: [dbConfig, TypeOrmModule.forFeature([Role, Admin, Song])],
   controllers: [
     AppController,
     AdminController,
