@@ -1,4 +1,4 @@
-﻿namespace Vitrola.Desktop;
+﻿namespace Vitrola.Desktop.Views;
 
 public partial class MainPage : ContentPage
 {
