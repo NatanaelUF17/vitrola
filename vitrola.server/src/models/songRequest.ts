@@ -1,12 +1,17 @@
-import { Song } from './song';
-import { Student } from './student';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity()
 export class SongRequest {
-  id: string;
+  @PrimaryGeneratedColumn()
+  id?: string;
+  @Column()
   songRequestId: string;
-  song: Song;
-  student: Student;
+  @Column()
+  songId: string;
+  @Column()
   songRequestDate: Date;
+  @Column()
   isForAddingNewSong: boolean;
+  @Column()
   isForPlayingSong: boolean;
 }

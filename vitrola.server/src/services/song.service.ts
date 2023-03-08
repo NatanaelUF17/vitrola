@@ -23,8 +23,8 @@ export class SongService {
     const newSong: Song = {
       songId: uuidv4(),
       name: song.name,
-      url: song.url,
-      adminId: '',
+      songUrl: song.songUrl,
+      thumbnailUrl: song.thumbnailUrl,
     };
 
     try {

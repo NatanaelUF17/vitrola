@@ -1,5 +1,6 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import Role from 'src/models/role';
+import { Song } from 'src/models/song';
+import { SongRequest } from 'src/models/songRequest';
 
 const dbConfig = TypeOrmModule.forRoot({
   type: 'mysql',
@@ -7,7 +8,7 @@ const dbConfig = TypeOrmModule.forRoot({
   port: 3306,
   username: 'root',
   database: 'vitrola',
-  entities: [Role],
+  entities: [Song, SongRequest],
 });
 
 export default dbConfig;

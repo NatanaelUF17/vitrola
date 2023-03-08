@@ -9,7 +9,7 @@ export class Song {
   @Column()
   name: string;
   @Column()
-  url: string;
+  songUrl: string;
   @Column()
-  adminId: string;
+  thumbnailUrl: string;
 }
