@@ -42,12 +42,28 @@ namespace Vitrola.Desktop.Services
             }
         }
 
-        public Task GetSongAsync(string id)
+        public async Task<List<Song>> GetSongsAsync()
         {
-            throw new NotImplementedException();
+            var songs = new List<Song>();
+
+            try
+            {
+                HttpResponseMessage response = await _httpClient.GetAsync(_httpClient.BaseAddress);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    songs = JsonSerializer.Deserialize<List<Song>>(content, _serializerOptions);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error: {ex.Message}");
+            }
+
+            return songs;
         }
 
-        public Task GetSongsAsync()
+        public Task GetSongAsync(string id)
         {
             throw new NotImplementedException();
         }

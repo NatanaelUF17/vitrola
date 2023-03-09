@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Vitrola.Desktop.ViewModels"
+             xmlns:models="clr-namespace:Vitrola.Desktop.Models"
              x:Class="Vitrola.Desktop.Views.MainPage">
 
     <ContentPage.BindingContext>
@@ -18,22 +19,28 @@
                     Command="{Binding AddSongCommand}"
                     HeightRequest="50"
                     WidthRequest="100"/>
+
+            <Button Text="Get Songs"
+                    Margin="0, 0, 10, 0"
+                    Command="{Binding GetSongsCommand}"
+                    HeightRequest="50"
+                    WidthRequest="100"/>
         </FlexLayout>
 
         <Grid Grid.Row="1"
               ColumnDefinitions="*, *">
 
             <ScrollView BackgroundColor="White" VerticalScrollBarVisibility="Always">
-                <RefreshView>
-                    <CollectionView ItemsSource="{Binding mockData}">
+                <RefreshView Command="{Binding GetSongsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                    <CollectionView ItemsSource="{Binding Songs}">
                         <CollectionView.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="models:Song">
                                 <StackLayout Orientation="Horizontal" Spacing="5">
                                     <Label Text="{Binding Name}"
                                        TextColor="red"/>
-                                    <Label Text="{Binding LastName}"
+                                    <Label Text="{Binding SongUrl}"
                                            TextColor="red"/>
-                                    <Label Text="{Binding FirstLetter}"
+                                    <Label Text="{Binding ThumbnailUrl}"
                                            TextColor="red"/>
                                 </StackLayout>
                             </DataTemplate>
@@ -42,9 +49,9 @@
                 </RefreshView>
             </ScrollView>
 
-            <ScrollView Grid.Column="1" BackgroundColor="Blue" VerticalScrollBarVisibility="Always">
+            <!--<ScrollView Grid.Column="1" BackgroundColor="Blue" VerticalScrollBarVisibility="Always">
                 <RefreshView>
-                    <CollectionView ItemsSource="{Binding mockData}">
+                    <CollectionView ItemsSource="{Binding Ge}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Orientation="Horizontal" Spacing="5">
@@ -59,7 +66,7 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </RefreshView>
-            </ScrollView>
+            </ScrollView>-->
 
         </Grid>
     </Grid>

@@ -5,7 +5,7 @@ namespace Vitrola.Desktop.Services
 {
 	public interface ISongService
 	{
-		Task GetSongsAsync();
+		Task<List<Song>> GetSongsAsync();
 		Task GetSongAsync(string id);
 		Task AddSongAsync(Song song);
 	}

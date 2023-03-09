@@ -1,31 +1,39 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Vitrola.Desktop.Models;
+using Vitrola.Desktop.Services;
 using Vitrola.Desktop.Views;
 
 namespace Vitrola.Desktop.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
-        public List<object> mockData { get; set; }
+        public ObservableCollection<Song> Songs { get; } = new ObservableCollection<Song>();
         public ICommand AddSongCommand { get; }
+        public ICommand GetSongsCommand { get; }
+
+        private ISongService _songService = new SongService();
 
         public MainViewModel()
 		{
-            mockData = new List<object>()
-            {
-                new { Name = "Nate", LastName = "Urena", FirstLetter = "N" },
-                new { Name = "Cristal", LastName = "Alonzo", FirstLetter = "C" },
-                new { Name = "Enmanuel", LastName = "Gonzalez", FirstLetter = "E" },
-                new { Name = "Minely", LastName = "Urena", FirstLetter = "M" },
-                new { Name = "Minelfy", LastName = "Urena", FirstLetter = "M" }
-            };
             AddSongCommand = new Command(AddSong);
+            GetSongsCommand = new Command(async () => await GetSongs());
         }
 
         async void AddSong()
         {
             await Shell.Current.GoToAsync($"//{nameof(SongPage)}");
         }
-	}
+
+        async Task GetSongs()
+        {
+            var songs = await _songService.GetSongsAsync();
+            foreach (var song in songs)
+            {
+                Songs.Add(song);
+            }
+        }
+    }
 }
 
