@@ -1,42 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Vitrola.Desktop.ViewModels"
              x:Class="Vitrola.Desktop.Views.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel />
+    </ContentPage.BindingContext>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+    <Grid RowDefinitions="100, *, 150">
+        <FlexLayout Direction="RowReverse"
+                    AlignItems="Center"
+                    JustifyContent="Start">
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <Button Text="Add Song"
+                    Margin="0, 0, 10, 0"
+                    Command="{Binding AddSongCommand}"
+                    HeightRequest="50"
+                    WidthRequest="100"/>
+        </FlexLayout>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+        <Grid Grid.Row="1"
+              ColumnDefinitions="*, *">
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <ScrollView BackgroundColor="White" VerticalScrollBarVisibility="Always">
+                <RefreshView>
+                    <CollectionView ItemsSource="{Binding mockData}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Label Text="{Binding Name}"
+                                       TextColor="red"/>
+                                    <Label Text="{Binding LastName}"
+                                           TextColor="red"/>
+                                    <Label Text="{Binding FirstLetter}"
+                                           TextColor="red"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+            </ScrollView>
 
-        </VerticalStackLayout>
-    </ScrollView>
+            <ScrollView Grid.Column="1" BackgroundColor="Blue" VerticalScrollBarVisibility="Always">
+                <RefreshView>
+                    <CollectionView ItemsSource="{Binding mockData}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Label Text="{Binding Name}"
+                                       TextColor="red"/>
+                                    <Label Text="{Binding LastName}"
+                                           TextColor="red"/>
+                                    <Label Text="{Binding FirstLetter}"
+                                           TextColor="red"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+            </ScrollView>
 
+        </Grid>
+    </Grid>
+ 
 </ContentPage>
 

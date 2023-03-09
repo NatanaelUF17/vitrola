@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using Vitrola.Desktop.Services;
+using Vitrola.Desktop.ViewModels;
+using Vitrola.Desktop.Views;
 
 namespace Vitrola.Desktop;
 
@@ -16,7 +19,7 @@ public static class MauiProgram
 			});
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();
