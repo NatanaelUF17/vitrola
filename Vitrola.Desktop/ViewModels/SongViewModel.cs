@@ -64,7 +64,7 @@ namespace Vitrola.Desktop.ViewModels
         private async void SaveSong()
         {
             await _songService.AddSongAsync(Song);
-            await Shell.Current.GoToAsync($"{nameof(MainPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
         }
     }
 }
