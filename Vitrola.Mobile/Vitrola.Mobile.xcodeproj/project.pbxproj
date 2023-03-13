@@ -11,6 +11,12 @@
 		430B12B429AED7D200E554BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430B12B329AED7D200E554BB /* ContentView.swift */; };
 		430B12B629AED7D500E554BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430B12B529AED7D500E554BB /* Assets.xcassets */; };
 		430B12B929AED7D500E554BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430B12B829AED7D500E554BB /* Preview Assets.xcassets */; };
+		432E578B29BEAD1000FD5B1C /* SongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E578A29BEAD1000FD5B1C /* SongRequest.swift */; };
+		432E578E29BEAEEA00FD5B1C /* SongRequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E578D29BEAEEA00FD5B1C /* SongRequestServices.swift */; };
+		432E579029BEB20F00FD5B1C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E578F29BEB20F00FD5B1C /* Song.swift */; };
+		432E579329BEB3EF00FD5B1C /* SongService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E579229BEB3EF00FD5B1C /* SongService.swift */; };
+		432E579629BEB89800FD5B1C /* SwiftUIMargin in Frameworks */ = {isa = PBXBuildFile; productRef = 432E579529BEB89800FD5B1C /* SwiftUIMargin */; };
+		43B8984729BEBD0000B4BC70 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B8984629BEBD0000B4BC70 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,11 @@
 		430B12B329AED7D200E554BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		430B12B529AED7D500E554BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		430B12B829AED7D500E554BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		432E578A29BEAD1000FD5B1C /* SongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequest.swift; sourceTree = "<group>"; };
+		432E578D29BEAEEA00FD5B1C /* SongRequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestServices.swift; sourceTree = "<group>"; };
+		432E578F29BEB20F00FD5B1C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		432E579229BEB3EF00FD5B1C /* SongService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongService.swift; sourceTree = "<group>"; };
+		43B8984629BEBD0000B4BC70 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432E579629BEB89800FD5B1C /* SwiftUIMargin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +63,9 @@
 		430B12B029AED7D200E554BB /* Vitrola.Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				43B8984529BEBCEB00B4BC70 /* Components */,
+				432E578C29BEAED800FD5B1C /* Services */,
+				432E578929BEACA100FD5B1C /* Models */,
 				430B12B129AED7D200E554BB /* Vitrola_MobileApp.swift */,
 				430B12B329AED7D200E554BB /* ContentView.swift */,
 				430B12B529AED7D500E554BB /* Assets.xcassets */,
@@ -65,6 +80,32 @@
 				430B12B829AED7D500E554BB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		432E578929BEACA100FD5B1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				432E578A29BEAD1000FD5B1C /* SongRequest.swift */,
+				432E578F29BEB20F00FD5B1C /* Song.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		432E578C29BEAED800FD5B1C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				432E578D29BEAEEA00FD5B1C /* SongRequestServices.swift */,
+				432E579229BEB3EF00FD5B1C /* SongService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		43B8984529BEBCEB00B4BC70 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				43B8984629BEBD0000B4BC70 /* CustomButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +124,9 @@
 			dependencies = (
 			);
 			name = Vitrola.Mobile;
+			packageProductDependencies = (
+				432E579529BEB89800FD5B1C /* SwiftUIMargin */,
+			);
 			productName = Vitrola.Mobile;
 			productReference = 430B12AE29AED7D200E554BB /* Vitrola.Mobile.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +155,9 @@
 				Base,
 			);
 			mainGroup = 430B12A529AED7D200E554BB;
+			packageReferences = (
+				432E579429BEB89800FD5B1C /* XCRemoteSwiftPackageReference "SwiftUIMargin" */,
+			);
 			productRefGroup = 430B12AF29AED7D200E554BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432E578E29BEAEEA00FD5B1C /* SongRequestServices.swift in Sources */,
 				430B12B429AED7D200E554BB /* ContentView.swift in Sources */,
+				432E579329BEB3EF00FD5B1C /* SongService.swift in Sources */,
 				430B12B229AED7D200E554BB /* Vitrola_MobileApp.swift in Sources */,
+				43B8984729BEBD0000B4BC70 /* CustomButton.swift in Sources */,
+				432E578B29BEAD1000FD5B1C /* SongRequest.swift in Sources */,
+				432E579029BEB20F00FD5B1C /* Song.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +391,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		432E579429BEB89800FD5B1C /* XCRemoteSwiftPackageReference "SwiftUIMargin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/karamage/SwiftUIMargin.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		432E579529BEB89800FD5B1C /* SwiftUIMargin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 432E579429BEB89800FD5B1C /* XCRemoteSwiftPackageReference "SwiftUIMargin" */;
+			productName = SwiftUIMargin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 430B12A629AED7D200E554BB /* Project object */;
 }
